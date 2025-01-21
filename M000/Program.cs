@@ -1,23 +1,32 @@
-﻿Console.Write("Meter: ");
-string meter = Console.ReadLine();
-int m = int.Parse(meter);
+﻿bool schaltjahr = false;
+int jahr = 2020;
+if (jahr % 4 == 0)
+	schaltjahr = true;
+if (jahr % 100 == 0)
+	schaltjahr = false;
+if (jahr % 400 == 0)
+	schaltjahr = true;
 
-Console.Write("Stunden: ");
-string stunden = Console.ReadLine();
-int std = int.Parse(stunden);
+if (schaltjahr)
+	Console.WriteLine($"{jahr} ist ein Schaltjahr");
+else
+	Console.WriteLine($"{jahr} ist kein Schaltjahr");
 
-Console.Write("Minuten: ");
-string minuten = Console.ReadLine();
-int min = int.Parse(minuten);
 
-Console.Write("Sekunden: ");
-string sekunden = Console.ReadLine();
-int sek = int.Parse(sekunden);
-
-double gesamt = std * 3600 + min * 60 + sek;
-
-Console.WriteLine($"Meter/Sekunde: {Math.Round(m / gesamt, 2)}");
-double kilometer = m / 1000.0;
-double stunde = gesamt / 3600;
-Console.WriteLine($"Kilometer/Stunde: {Math.Round(kilometer / stunde, 2)}");
-Console.WriteLine($"Meilen/Stunde: {Math.Round(kilometer / stunde * 0.62137119, 2)}");
+int[] zahlen = [14, 73, 28, 77, 4];
+int zahl = 33;
+if (zahl >= 0 && zahl <= 100)
+{
+	if (zahlen.Contains(zahl))
+	{
+		Console.WriteLine("Glückwunsch");
+	}
+	else
+	{
+		Console.WriteLine("Keine Zahl getroffen");
+	}
+}
+else
+{
+	Console.WriteLine("Zahl ist nicht im Bereich (0-100)");
+}
