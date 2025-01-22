@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Shortcuts.txt = Shortcuts.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M006", "M006\M006.csproj", "{2CE2EDED-6C0E-464E-9A41-EBAEA9FB1E71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{DA64E90F-6ECF-4ABB-993A-1990F880EAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA64E90F-6ECF-4ABB-993A-1990F880EAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA64E90F-6ECF-4ABB-993A-1990F880EAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE2EDED-6C0E-464E-9A41-EBAEA9FB1E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE2EDED-6C0E-464E-9A41-EBAEA9FB1E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE2EDED-6C0E-464E-9A41-EBAEA9FB1E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE2EDED-6C0E-464E-9A41-EBAEA9FB1E71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
