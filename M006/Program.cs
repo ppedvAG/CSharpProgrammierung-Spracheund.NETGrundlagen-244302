@@ -1,4 +1,6 @@
-﻿namespace M006;
+﻿using M006.Data;
+
+namespace M006;
 
 /// <summary>
 /// Klassen und Objekte
@@ -45,5 +47,26 @@ internal class Program
 		p2.Alter = 30;
 
 		Person p3 = new Person("Max", "Mustermann", 40);
-	}
+        Console.WriteLine(p3.VollerName);
+
+		//Namespace
+		//= Package
+		//Organisationseinheiten, welche unsere Typen gruppieren können
+		//Bei großen Projekten essentiell, um Ordnung zu halten
+		//Mithilfe von namespace M006; werden alle Typen in der entsprechenden Datei in den Namespace M006
+
+		//Person ist jetzt in M006.Data; hier muss jetzt eine Referenz erzeugt werden
+		//Referenzen zu anderen Namespaces werden mit dem using Keyword erzeugt
+		//using M006.Data; (Strg + .: Automatisch importieren)
+
+		//Generell hängen Namespaces mit einer Ordnerstruktur zusammen
+
+		//////////////////////////////////////////////////////////////////////////
+
+		//Assozation
+		//Objekte in andere Objekte verschachteln
+		//Beispiel: Schulung
+		Schulung s = new Schulung("C# Grundkurs", 4, p1, Schulungstyp.Gemischt, "Schulungsraum 1", p2, p3);
+		s.NeueTeilnehmerHinzufuegen(new Person());
+    }
 }

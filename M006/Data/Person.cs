@@ -1,4 +1,4 @@
-﻿namespace M006;
+﻿namespace M006.Data;
 
 /// <summary>
 /// - Vorname - string
@@ -106,16 +106,16 @@ public class Person
 	/// - ...
 	/// </summary>
 	public int Alter { get; set; }
-	#endregion
+    #endregion
 
-	#region Konstruktor
-	/// <summary>
-	/// Konstruktor
-	/// "Main Methode" von der Klasse
-	/// Wird bei Erstellung von dem Objekt ausgeführt
-	/// Der Standardkonstruktor existiert immer, wenn kein anderer Konstruktor definiert ist
-	/// </summary>
-	public Person()
+    #region Konstruktor
+    /// <summary>
+    /// Konstruktor
+    /// "Main Methode" von der Klasse
+    /// Wird bei Erstellung von dem Objekt ausgeführt
+    /// Der Standardkonstruktor existiert immer, wenn kein anderer Konstruktor definiert ist
+    /// </summary>
+    public Person()
 	{
         Console.WriteLine("Person erstellt");
     }
