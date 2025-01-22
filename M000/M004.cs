@@ -1,6 +1,6 @@
 ﻿internal class M004
 {
-	private static void Main(string[] args)
+	private static void Main2(string[] args)
 	{
 		while (true)
 		{
