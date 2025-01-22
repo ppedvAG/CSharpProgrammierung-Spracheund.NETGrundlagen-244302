@@ -1,32 +1,57 @@
-﻿bool schaltjahr = false;
-int jahr = 2020;
-if (jahr % 4 == 0)
-	schaltjahr = true;
-if (jahr % 100 == 0)
-	schaltjahr = false;
-if (jahr % 400 == 0)
-	schaltjahr = true;
-
-if (schaltjahr)
-	Console.WriteLine($"{jahr} ist ein Schaltjahr");
-else
-	Console.WriteLine($"{jahr} ist kein Schaltjahr");
-
-
-int[] zahlen = [14, 73, 28, 77, 4];
-int zahl = 33;
-if (zahl >= 0 && zahl <= 100)
+﻿while (true)
 {
-	if (zahlen.Contains(zahl))
+	Console.Write("Gib die erste Zahl ein: ");
+	string eingabe1 = Console.ReadLine();
+	double zahl1 = double.Parse(eingabe1);
+
+	Console.Write("Gib die zweite Zahl ein: ");
+	string eingabe2 = Console.ReadLine();
+	double zahl2 = double.Parse(eingabe2);
+
+	Console.WriteLine("Wähle eine Rechenoperation aus: ");
+	Rechenoperation[] operationen = Enum.GetValues<Rechenoperation>();
+	foreach (Rechenoperation operation in operationen)
 	{
-		Console.WriteLine("Glückwunsch");
+		int z = (int) operation; //Enumwert in Zahl umwandeln
+		Console.WriteLine($"{z}: {operation}");
 	}
+	string eingabe3 = Console.ReadLine();
+
+	//int zahl3 = int.Parse(eingabe2);
+	//Rechenoperation op = (Rechenoperation) zahl3;
+
+	Rechenoperation op = Enum.Parse<Rechenoperation>(eingabe3);
+	switch (op)
+	{
+		case Rechenoperation.Addition:
+			Console.WriteLine($"Ergebnis: {zahl1 + zahl2}");
+			break;
+		case Rechenoperation.Subtraktion:
+			Console.WriteLine($"Ergebnis: {zahl1 - zahl2}");
+			break;
+		case Rechenoperation.Multiplikation:
+			Console.WriteLine($"Ergebnis: {zahl1 * zahl2}");
+			break;
+		case Rechenoperation.Division:
+			if (zahl2 != 0)
+				Console.WriteLine($"Ergebnis: {zahl1 / zahl2}");
+			else
+				Console.WriteLine("Division durch 0 nicht möglich!");
+			break;
+	}
+
+    Console.WriteLine("Enter drücken zum Wiederholen");
+	if (Console.ReadKey(true).Key != ConsoleKey.Enter)
+		break;
 	else
-	{
-		Console.WriteLine("Keine Zahl getroffen");
-	}
+		Console.Clear();
 }
-else
+
+
+enum Rechenoperation
 {
-	Console.WriteLine("Zahl ist nicht im Bereich (0-100)");
+	Addition = 1,
+	Subtraktion,
+	Multiplikation,
+	Division
 }
