@@ -1,3 +1,5 @@
 Strg + .: Schnelloptionen anzeigen
 Strg + Leertaste: Vorschläge für Typen/Keywords/...
 F12: Zur Definition springen
+Strg + K, Strg + C: Codeblock auskommentieren
+Strg + K, Strg + U: Codeblock einkommentieren
