@@ -35,11 +35,50 @@ internal partial class Program
 		//fzg.StoppeMotor(); //OK
 		//Console.WriteLine(fzg.Info());
 
-		PKW pkw = new PKW("VW", 250, 20000, 5);
-		Schiff s = new Schiff("Titanic", 50, 10_000_000, "Dampf");
-		Flugzeug f = new Flugzeug("Boeing", 1000, 50_000_000, 10000);
-        Console.WriteLine(pkw.Info());
-        Console.WriteLine(s.Info());
-        Console.WriteLine(f.Info());
+		//PKW pkw = new PKW("VW", 250, 20000, 5);
+		//Schiff s = new Schiff("Titanic", 50, 10_000_000, "Dampf");
+		//Flugzeug f = new Flugzeug("Boeing", 1000, 50_000_000, 10000);
+		//Console.WriteLine(pkw.Info());
+		//Console.WriteLine(s.Info());
+		//Console.WriteLine(f.Info());
+
+		Fahrzeug[] fzg = new Fahrzeug[10];
+		for (int i = 0; i < fzg.Length; i++)
+		{
+			fzg[i] = Fahrzeug.GeneriereFahrzeug(i.ToString());
+			//Console.WriteLine(fzg[i].ToString());
+        }
+
+		foreach (Fahrzeug f in fzg)
+		{
+            Console.WriteLine(f); //.ToString() optional
+        }
+
+		fzg[2].Hupen();
+
+		int pkws = 0, schiffe = 0, flugzeuge = 0;
+		foreach (Fahrzeug f in fzg)
+		{
+			if (f is PKW)
+				pkws++;
+			else if (f is Schiff)
+				schiffe++;
+			else if (f is Flugzeug)
+				flugzeuge++;
+
+			//switch (f)
+			//{
+			//	case PKW:
+			//		pkws++;
+			//		break;
+			//	case Schiff:
+			//		schiffe++;
+			//		break;
+			//	case Flugzeug:
+			//		flugzeuge++;
+			//		break;
+			//}
+		}
+        Console.WriteLine($"PKWs: {pkws}, Schiffe: {schiffe}, Flugzeuge: {flugzeuge}");
     }
 }

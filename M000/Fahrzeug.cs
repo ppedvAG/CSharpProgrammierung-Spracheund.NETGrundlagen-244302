@@ -1,6 +1,6 @@
 ﻿namespace M000;
 
-public class Fahrzeug
+public abstract class Fahrzeug
 {
 	public string Name { get; private set; }
 
@@ -93,4 +93,23 @@ public class Fahrzeug
         //	//...
         //}
     }
+
+	public abstract void Hupen();
+
+	public override string ToString()
+	{
+		return $"{GetType().Name}, {Name}";
+	}
+
+	public static Fahrzeug GeneriereFahrzeug(string name)
+	{
+		Random r = new Random();
+		switch (r.Next(0, 3))
+		{
+			case 0: return new PKW(name, 250, 20000, 5);
+			case 1: return new Schiff(name, 50, 10_000_000, "Dampf");
+			default: return new Flugzeug(name, 1000, 50_000_000, 10000);
+			//default: return null;
+		}
+	}
 }
