@@ -41,10 +41,10 @@ public class Fahrzeug
 			Console.WriteLine("Motor läuft nicht oder Auto fährt noch");
 	}
 
-	public string Info()
+	public virtual string Info()
 	{
-		return $"Das Fahrzeug {Name} kostet {Preis}€ und kann maximal {MaxV}km/h fahren." +
-					(AktV > 0 ? $" Es fährt gerade {AktV}km/h" : "");  //Ternary-Operator: If's in den Code kompakt einbauen
+		return $" {Name} kostet {Preis}€ und kann maximal {MaxV}km/h fahren." +
+					(AktV > 0 ? $" Es fährt gerade {AktV}km/h." : "");  //Ternary-Operator: If's in den Code kompakt einbauen
 	}
 
 	public void Beschleunige(int a)
