@@ -80,5 +80,32 @@ internal partial class Program
 			//}
 		}
         Console.WriteLine($"PKWs: {pkws}, Schiffe: {schiffe}, Flugzeuge: {flugzeuge}");
+
+		TesteBelade(fzg[0], new Container());
+    }
+
+	public static void TesteBelade(object a, object b)
+	{
+		if (a is IBeladbar x) //a lädt b auf
+		{
+			if (b is Fahrzeug f1)
+			{
+				x.Belade(f1);
+				Console.WriteLine($"{x} hat {f1} aufgeladen");
+				return; //2 Objekte können sich nicht gleichzeitig gegenseitig aufladen
+			}
+		}
+
+		if (b is IBeladbar y) //b lädt a auf
+		{
+			if (a is Fahrzeug f2)
+			{
+				y.Belade(f2);
+				Console.WriteLine($"{y} hat {f2} aufgeladen");
+				return;
+			}
+		}
+
+		Console.WriteLine("Keines der Objekte kann das andere aufladen");
     }
 }
