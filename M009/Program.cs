@@ -11,7 +11,7 @@ internal class Program
 		//Jeder Typ ist immer mit seinen Oberklassen kompatibel
 		Lebewesen lw = new Mensch(30, "Max");
 
-		Lebewesen l = new Lebewesen(20);
+		//Lebewesen l = new Lebewesen(20);
 
 		//object ist mit allen Typen kompatibel, da es die oberste Klasse in der Typhierarchie ist
 		object o = new Mensch(10, "");
