@@ -109,10 +109,10 @@ if (wt == Wochentag.Di)
 
 //Die Enum Klasse
 Wochentag[] tage = Enum.GetValues<Wochentag>();
-foreach (Wochentag t in tage)
+foreach (Wochentag w in tage)
 {
-    Console.WriteLine(t);
-    Console.WriteLine((int) t); //Die Zahl hinter dem Wochentag
+    Console.WriteLine(w);
+    Console.WriteLine((int) w); //Die Zahl hinter dem Wochentag
 }
 
 //Enum.Parse: Text zu einem Enumwert konvertieren
