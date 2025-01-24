@@ -135,6 +135,37 @@ internal class Program
 		//Liste casten
 		//Beispiel: Hinter jeder Marke die Zahl entnehmen
 		fahrzeuge.Select(e => (int) e.Marke);
+
+		//GroupBy
+		//Anhand eines Kriteriums die Daten in Gruppen aufteilen
+		//Beispiel: Nach Marke gruppieren
+		//Drei Gruppen: Audi-Gruppe, BMW-Gruppe, VW-Gruppe
+		fahrzeuge.GroupBy(e => e.Marke);
+
+		//Das Ergebnis hat den Typen: IEnumerable<IGrouping<FahrzeugMarke, Fahrzeug>>
+		//Dieser Typ ist zum Weiterarbeiten unbrauchbar
+		//-> zu einem Dictionary konvertieren
+		fahrzeuge
+			.GroupBy(e => e.Marke)
+			.ToDictionary(e => e.Key); //ToDictionary mit einer Lambda-Expression
+
+		Dictionary<FahrzeugMarke, List<Fahrzeug>> x = fahrzeuge
+			.GroupBy(e => e.Marke)
+			.ToDictionary(e => e.Key, e => e.ToList());
+
+		List<Fahrzeug> vw = x[FahrzeugMarke.VW]; //Das Dictionary besteht jetzt aus Listen -> einfach zu Benutzen
+		#endregion
+
+		#region Erweiterungsmethoden
+		int y = 241;
+        Console.WriteLine(y.Quersumme());
+
+        Console.WriteLine(321857.Quersumme());
+
+		//Compiler generiert den folgenden Code:
+        Console.WriteLine(ExtensionMethods.Quersumme(y));
+
+        Console.WriteLine(ExtensionMethods.Quersumme(321857));
         #endregion
     }
 }
@@ -156,4 +187,20 @@ public class Fahrzeug
 public enum FahrzeugMarke
 {
 	Audi, BMW, VW
+}
+
+public static class ExtensionMethods
+{
+	public static int Quersumme(this int x)
+	{
+		//int summe = 0;
+		//string zahlAlsString = x.ToString();
+		//for (int i = 0; i < zahlAlsString.Length; i++)
+		//{
+		//	summe += (int) char.GetNumericValue(zahlAlsString[i]);
+		//}
+		//return summe;
+
+		return (int) x.ToString().Sum(char.GetNumericValue);
+	}
 }
